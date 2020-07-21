@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR="/volumes/netstat/logs/"
+ROOT_DIR="/usr/local/lib/netstat/logs/"
 LOG_DIR="$ROOT_DIR$(date +%F)/" && mkdir -p ${LOG_DIR}
 FILE_NAME=${LOG_DIR}/fping.$(date +%F_%H-%M-%S).log
 
