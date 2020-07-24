@@ -9,7 +9,7 @@ tmp_file=/tmp/fping_$RANDOM.$RANDOM.log
 
 ## Run this for an hour, ping per each 3 seconds
 for i in {1..1200}; do
-  ip_index=$(( $(date +%s) % ${#ip_addresses[@]} ))
+  ip_index=$(( $(expr $(date +%s) + $RANDOM) % ${#ip_addresses[@]} ))
   target_ip=${ip_addresses[$ip_index]}
 
   ## timeout of 568ms for ping
