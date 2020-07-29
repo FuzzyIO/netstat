@@ -5,22 +5,24 @@ Quick way to get historical Network stability statics with Bash
 
 * Prerequisite: you must have **sudo** access to install packages and create the folders
 
-Install the packages & setup folders
+Setup folders
 ```bash
-
 # any user with sudo privilege
-sudo apt-get update && sudo apt-get install cron dnsutils fping -y
 sudo mkdir -p /usr/local/lib/netstat/
 sudo chown ${USER}:${USER} /usr/local/lib/netstat/
+```
 
+Install the packages
+```bash
+# any user with sudo privilege
+sudo apt-get update && sudo apt-get install cron dnsutils fping -y
 ```
 
 Run it as root user (not recommended)
 ```bash
-apt-get update && apt-get install cron dnsutils fping -y
 mkdir -p /usr/local/lib/netstat/
 chown ${USER}:${USER} /usr/local/lib/netstat/
-
+apt-get update && apt-get install cron dnsutils fping -y
 ```
 
 Get the source file and installing it
