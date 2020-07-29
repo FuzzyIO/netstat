@@ -3,7 +3,12 @@ ROOT_DIR="/usr/local/lib/netstat/logs/"
 LOG_DIR="$ROOT_DIR$(date +%F)/" && mkdir -p ${LOG_DIR}
 FILE_NAME=${LOG_DIR}/dig.$(date +%F_%H-%M-%S).log
 
-ip_addresses=(1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220 68.94.157.1)
+## Include Houston Area ONLY IP
+# ip_addresses=(1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220 68.94.157.1)
+
+## US based IP List
+ip_addresses=(1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220)
+
 ip_index=$(( $(expr $(date +%s) + $RANDOM) % ${#ip_addresses[@]} ))
 target_ip=${ip_addresses[$ip_index]}
 
