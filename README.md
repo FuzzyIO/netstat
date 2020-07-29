@@ -5,10 +5,11 @@ Quick way to get historical Network stability statics with Bash
 
 * Prerequisite: you must have **sudo** access to install packages and create the folders
 
-Setup folders
+Setup folders (Run these one line at a time since system might prompt for user password)
 ```bash
 # any user with sudo privilege
 sudo mkdir -p /usr/local/lib/netstat/
+
 sudo chown ${USER}:${USER} /usr/local/lib/netstat/
 ```
 
