@@ -19,7 +19,7 @@ for i in {1..1200}; do
 
   ## timeout of 568ms for ping
   rm -f $tmp_file && fping -C1 -t568 $target_ip >> $tmp_file 2>> $tmp_file
-  tail $tmp_file -n 1 | while read line; do echo `date` - $line >> $FILE_NAME 2>> $FILE_NAME ; done;
+  tail $tmp_file -n 1 | awk '{print $1,$3}' | while read line; do echo `date +%FT%H:%M:%SZ` PING $line >> $FILE_NAME 2>> $FILE_NAME ; done;
   rm -f $tmp_file
   sleep 3;
 done
