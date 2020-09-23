@@ -14,10 +14,11 @@ target_ip=${ip_addresses[$ip_index]}
 
 ## Run this for an hour, lookup every 3 seconds
 for i in {1..1200}; do
-  /usr/bin/dig +time=1 @$target_ip google.com | grep 'timed out\|Query' |  awk '{print $4}' | sed 's/out;/-/g' | while read line; do
-    echo `date +%FT%H:%M:%SZ` DNS $target_ip $line;
-  done; sleep 3;
-done >> $FILE_NAME
+  response_time=$(/usr/bin/dig +time=1 @$target_ip google.com | grep 'timed out\|Query' |  awk '{print $4}' | sed 's/out;/-/g')
+  echo `date +%FT%H:%M:%SZ` DNS $target_ip $response_time
+  echo `date +%FT%H:%M:%SZ` DNS $target_ip $response_time >> $FILE_NAME 2>> $FILE_NAME
+  sleep 3;
+done
 
 
 ## Clear logs from 30 days ago
